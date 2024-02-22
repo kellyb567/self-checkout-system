@@ -1,0 +1,31 @@
+/*global styling settings */
+.label{
+	-fx-font-family: "Trebuchet MS";
+	-fx-text-fill: "black";
+	-fx-font-size: 20;
+	-fx-alignment: baseline-left;
+}
+
+.button{
+	-fx-font-family: "Trebuchet MS";
+	-fx-text-fill: "black";
+	-fx-font-size: 20;
+	-fx-alignment: center;
+}
+
+
+/*local styling settings */
+#welcomeLabel{
+	-fx-font-size: 40;
+	-fx-alignment:center;
+}
+
+#dateLabel{
+	-fx-alignment: baseline-right;
+}
+
+#state5Label{
+	-fx-alignment: center;
+	-fx-font-size: 65;
+}
+
