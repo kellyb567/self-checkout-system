@@ -6,8 +6,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.globalController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.State1Controller">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fc8165" height="600.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="415.0" layoutX="23.0" layoutY="68.0" stroke="#f2e6e6" strokeType="INSIDE" width="757.0" />
@@ -19,7 +20,8 @@
       <Button fx:id="getStarted" layoutX="290.0" layoutY="337.0" mnemonicParsing="false" onAction="#switchToState2" prefHeight="25.0" prefWidth="221.0" text="Get Started" />
       <Label fx:id="welcomeLabel" layoutX="9.0" layoutY="188.0" prefHeight="17.0" prefWidth="790.0" text="Welcome! Click the button to get started" />
       <Label fx:id="headerLabel" layoutX="92.0" layoutY="26.0" prefHeight="17.0" prefWidth="708.0" text="C-- Self Service Checkout Machine ver1" />
-      <Label fx:id="dateLabel" alignment="CENTER_RIGHT" layoutX="95.0" layoutY="26.0" prefHeight="17.0" prefWidth="685.0" text="Date&amp;Time" />
       <Button fx:id="helpButton" layoutX="14.0" layoutY="552.0" mnemonicParsing="false" onAction="#switchToState5" text="?" />
+      <Text fx:id="dateTime" layoutX="5.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dateTime" textAlignment="RIGHT" wrappingWidth="790.0" />
+      <Button fx:id="logoutButton" layoutX="728.0" layoutY="552.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
    </children>
 </AnchorPane>
