@@ -7,8 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.globalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.State5Controller">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fc8165" height="600.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="415.0" layoutX="23.0" layoutY="68.0" stroke="#f2e6e6" strokeType="INSIDE" width="757.0" />
@@ -18,11 +19,11 @@
          </image>
       </ImageView>
       <Label fx:id="headerLabel" layoutX="92.0" layoutY="26.0" prefHeight="17.0" prefWidth="708.0" text="C-- Self Service Checkout Machine ver1" />
-      <Label fx:id="dateLabel" alignment="CENTER_RIGHT" layoutX="95.0" layoutY="26.0" prefHeight="17.0" prefWidth="685.0" text="Date" />
       <Label fx:id="state5Label" layoutY="90.0" prefHeight="327.0" prefWidth="800.0" text="A team member &#10;is coming to &#10;assist you.&#10;" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
          <font>
             <Font size="74.0" />
          </font></Label>
       <Button fx:id="storeMode" layoutX="290.0" layoutY="403.0" mnemonicParsing="false" onAction="#switchToState1" text="Store Mode" />
+      <Text fx:id="dateTime" layoutX="5" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="RIGHT" wrappingWidth="790" />      
    </children>
 </AnchorPane>
