@@ -20,12 +20,21 @@
 	-fx-alignment:center;
 }
 
-#dateLabel{
-	-fx-alignment: baseline-right;
-}
+
 
 #state5Label{
 	-fx-alignment: center;
 	-fx-font-size: 65;
+}
+
+#dateTime{
+	-fx-font-family: "Trebuchet MS";
+	-fx-text-fill: "black";
+	-fx-font-size: 20;
+}
+
+#logoutButton{
+	-fx-font-size: 15;
+	
 }
 
