@@ -39,12 +39,12 @@ public class Main extends Application{
 			stage.getIcons().add(icon);
 			
 			
-			
 			// set a title for the stage
 			stage.setTitle("Self checkout machine");
 			
 			
 			// initialize the stage, scene->stage, and show
+			
 			stage.setScene(scene);
 			stage.show();
 			
