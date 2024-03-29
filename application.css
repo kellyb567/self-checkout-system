@@ -27,6 +27,11 @@
 	-fx-font-size: 65;
 }
 
+#state7Label{
+	-fx-alignment: center;
+	-fx-font-size: 65;
+}
+
 #dateTime{
 	-fx-font-family: "Trebuchet MS";
 	-fx-text-fill: "black";
