@@ -24,6 +24,7 @@ import javafx.scene.Scene;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 
 
 public class State2Controller implements Initializable{
@@ -33,10 +34,9 @@ public class State2Controller implements Initializable{
 	
 	@FXML 
 	private Text dateTime;
-	
 	@FXML 
 	private ListView<String> ListView;
-	
+	@FXML
 	
 	
 	public void switchToState1(ActionEvent e) throws IOException{
@@ -47,8 +47,10 @@ public class State2Controller implements Initializable{
 	public void switchToState5(ActionEvent e) throws IOException{
 		global.switchToState5(e);
 		
-		
 	}
+	
+	
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// start the animation timer so the date will be dynamically updated every second
