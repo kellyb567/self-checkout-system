@@ -70,11 +70,11 @@ public class GlobalController{
 	}
 	
 	public void switchToState4(ActionEvent e) throws IOException{
-		// initialize State2
+		// initialize State4
 		root = FXMLLoader.load(getClass().getResource("State4.fxml"));
 		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
 					
-		//set State2 as the scene
+		//set State4 as the scene
 		scene = new Scene(root);
 		
 		
