@@ -32,13 +32,16 @@ public class State5Controller implements Initializable{
 		
 	}
 	
-	
 	public void switchToState2(ActionEvent e) throws IOException{
 		global.switchToState2(e);
 		
 	}
-		
 	
+	public void switchToState4(ActionEvent e) throws IOException{
+		global.switchToState4(e);
+		
+	}
+		
 	public void switchToState5(ActionEvent e) throws IOException{
 		global.switchToState5(e);
 	}
@@ -46,14 +49,17 @@ public class State5Controller implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		// start the animation timer so the date will be dynamically updated every second
 		timer.start();
 		
 	}
 
-	AnimationTimer timer = new AnimationTimer() {
-		@Override
-	    public void handle(long now) {
-	        dateTime.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMM-dd-yyyy HH:mm:ss")));
-	    }
-	};
+	// create an animation object
+		AnimationTimer timer = new AnimationTimer() {
+			@Override
+		    public void handle(long now) {
+				// set the dateTime Text to the current time with custom formatting
+		        dateTime.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMM-dd-yyyy HH:mm:ss")));
+		    }
+		};
 }
