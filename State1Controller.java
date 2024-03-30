@@ -44,7 +44,7 @@ public class State1Controller implements Initializable{
 		
 	}
 	
-	public void logout(ActionEvent e) throws IOException{
+	public void logout(ActionEvent e){
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText("You're about to logout!");
@@ -59,13 +59,16 @@ public class State1Controller implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		// start the animation timer so the date will be dynamically updated every second
 		timer.start();
 		
 	}
 
+	// create an animation object
 	AnimationTimer timer = new AnimationTimer() {
 		@Override
 	    public void handle(long now) {
+			// set the dateTime Text to the current time with custom formatting
 	        dateTime.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMM-dd-yyyy HH:mm:ss")));
 	    }
 	};
