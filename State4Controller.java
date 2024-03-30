@@ -5,6 +5,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.animation.AnimationTimer;
@@ -31,6 +33,10 @@ public class State4Controller implements Initializable{
 	@FXML private Text dateTime;
 	@FXML private Button logoutButton;
 	@FXML private AnchorPane anchorPane;
+	
+	@FXML private TextField usernameField;
+	@FXML private TextField passwordField;
+	
 	Stage stage;
 
 	
@@ -56,7 +62,39 @@ public class State4Controller implements Initializable{
 			stage.close();
 		}
 	}
+	
+	public void login(ActionEvent e) throws IOException {
+		String username = usernameField.getText();
+		String password = passwordField.getText();
+		
+		Boolean usernameIsFound = false;
+		
+		ArrayList<String> listOfUsernames = new ArrayList<String>();
+		ArrayList<String> listOfPasswords = new ArrayList<String>();
+		
+		listOfUsernames.add("employee");
+		listOfPasswords.add("password");
+		
+		for (int i = 0; i < listOfUsernames.size(); i++) {
+			if ( username.equals(listOfUsernames.get(i)) && password.equals(listOfPasswords.get(i))){
+				System.out.println("Successful Login");
+				// do something; maybe return to the checkout list
+				return;
+			}
+			else if (username.equals(listOfUsernames.get(i))){
+				usernameIsFound = true;
+			}
+		}
+		
+		if (usernameIsFound) {
+			System.out.println("Username found; wrong password entered");
+		}
+		else {
+			System.out.println("Your credentials could not be found");
+		}
+	}
 
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// start the animation timer so the date will be dynamically updated every second
