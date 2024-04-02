@@ -1,11 +1,14 @@
 package application;
 
+
 import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.ResourceBundle;
 
 import javafx.animation.Animation;
@@ -37,6 +40,9 @@ public class State2Controller implements Initializable{
 	@FXML 
 	private ListView<String> ListView;
 	@FXML
+	private TextField searchbox;
+	@FXML
+	private Text subtotalLabel;
 	
 	
 	public void switchToState1(ActionEvent e) throws IOException{
@@ -49,7 +55,24 @@ public class State2Controller implements Initializable{
 		
 	}
 	
-	
+	public void addFromSearch(ActionEvent e) throws Exception {
+		String ID = searchbox.getText();
+		Hashtable<String, Object[]> database = Database.generateDatabase();
+		ArrayList<String> currentlyInCart = Database.getCurrentlyInCart();
+		
+		Enumeration<String> keys = database.keys();
+		
+		while (keys.hasMoreElements()) {
+			String key = keys.nextElement();
+			System.out.println(key);
+			System.out.println(ID);
+			if (key.equals(ID)) {
+				Object nameOfGrocery1 = database.get(key)[0];
+				String nameOfGrocery2 = (String) nameOfGrocery1;
+				currentlyInCart.add(nameOfGrocery2);
+				System.out.println("item found");			}
+	    }
+	}
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -58,13 +81,11 @@ public class State2Controller implements Initializable{
 		
 		
 		// some skeleton for the ListView full of scanned items
-		ArrayList<String> list = new ArrayList<String>();
-		list.add("noodles");
-		list.add("rice");
+		ArrayList<String> currentlyInCart = Database.getCurrentlyInCart();
+		ListView.getItems().addAll(currentlyInCart);
 		
-		ListView.getItems().addAll(list);
 		
-	
+	    // detects which item in the ListView is being selected
 		ListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
 			@Override
