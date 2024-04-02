@@ -1,0 +1,5 @@
+carrot 0.99 0123
+ketchup 4.99 3429
+milk 2.49 2018
+butter 1.49 2202
+chicken 7.99 8045
