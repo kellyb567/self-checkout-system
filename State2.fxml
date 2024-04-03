@@ -1,111 +1,53 @@
-package application;
+<?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-import java.io.IOException;
-import java.net.URL;
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.ResourceBundle;
-
-import javafx.animation.Animation;
-import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-
-
-public class State2Controller implements Initializable{
-
-	// import methods from GlobalController as global
-	GlobalController global = new GlobalController();
-	
-	@FXML 
-	private Text dateTime;
-	@FXML 
-	private ListView<String> ListView;
-	@FXML
-	private TextField searchbox;
-	@FXML
-	private Text subtotalLabel;
-	
-	
-	public void switchToState1(ActionEvent e) throws IOException{
-		global.switchToState1(e);
-		
-	}
-	
-	public void switchToState5(ActionEvent e) throws IOException{
-		global.switchToState5(e);
-		
-	}
-	
-	public void addFromSearch(ActionEvent e) throws Exception {
-		String ID = searchbox.getText();  // retrieving the text from the textbox
-		Hashtable<String, Object[]> database = Database.generateDatabase(); // instantiating the database
-		ObservableList<String> currentlyInCart = Database.getCurrentlyInCart(); // locally updating what's already in the cart
-		
-		Enumeration<String> keys = database.keys(); // getting a list of the database keys (all of the IDS)
-		
-		// looping over all of the keys
-		while (keys.hasMoreElements()) {
-			String key = keys.nextElement(); // current key
-			if (key.equals(ID)) { 	  // if the entered in textbox is a hit with one from the database
-				
-				// add the name of the groceryitem into the ListView
-				String nameOfGrocery =  (String) (database.get(key)[0]);
-				Database.updateCurrentlyInCart(nameOfGrocery);
-				ListView.setItems(currentlyInCart);
-				System.out.println("item found");			}
-	    }
-	}
-	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		// start the animation timer so the date will be dynamically updated every second
-		timer.start();
-		
-		ObservableList<String> currentlyInCart = Database.getCurrentlyInCart();
-		ListView.setItems(currentlyInCart);
-		
-		
-	    // detects which item in the ListView is being selected
-		ListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-
-			@Override
-			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-				// TODO Auto-generated method stub
-			
-				// put the selected item on the table into a string for later uses
-				String selectedItem = ListView.getSelectionModel().getSelectedItem();
-			}
-		});	
-		}
-		
-	
-	// create an animation object
-		AnimationTimer timer = new AnimationTimer() {
-			@Override
-		    public void handle(long now) {
-				// set the dateTime Text to the current time with custom formatting
-		        dateTime.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMM-dd-yyyy HH:mm:ss")));
-		    }
-		};
-}
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.State2Controller">
+   <children>
+      <Rectangle fx:id="anchorPane" arcHeight="5.0" arcWidth="5.0" fill="#fc8165" height="600.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="415.0" layoutX="23.0" layoutY="68.0" stroke="#f2e6e6" strokeType="INSIDE" width="757.0" />
+      <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="23.0" layoutY="7.0">
+         <image>
+            <Image url="@../../../../OneDrive/Documents/C--.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="headerLabel" layoutX="92.0" layoutY="26.0" prefHeight="17.0" prefWidth="708.0" text="C-- Self Service Checkout Machine ver1" />
+      <Button fx:id="helpButton" layoutX="14.0" layoutY="552.0" mnemonicParsing="false" onAction="#switchToState5" text="?" />
+      <Button fx:id="backButton" layoutX="52.0" layoutY="551.0" mnemonicParsing="false" onAction="#switchToState1" text="↺" />
+      <Text fx:id="dateTime" layoutX="5.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dateTime" textAlignment="RIGHT" wrappingWidth="790.0" />
+      <ListView fx:id="ListView" editable="true" layoutX="36.0" layoutY="126.0" prefHeight="299.0" prefWidth="374.0" />
+      <Button fx:id="checkoutButton" layoutX="626.0" layoutY="409.0" mnemonicParsing="false" text="Checkout">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Text layoutX="541.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button fx:id="searchButton" layoutX="508.0" layoutY="409.0" mnemonicParsing="false" onAction="#addFromSearch" text="Search">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Text layoutX="51.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Your Items">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f1f3f4" height="229.0" layoutX="510.0" layoutY="126.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+      <Text layoutX="529.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tax: " />
+      <Text layoutX="524.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total: " wrappingWidth="230.0" />
+      <Text layoutX="528.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal:" />
+      <TextField fx:id="searchbox" layoutX="508.0" layoutY="374.0" prefHeight="26.0" prefWidth="66.0" />
+      <Text fx:id="subtotalLabel" layoutX="639.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+      <Text fx:id="taxLabel" layoutX="639.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+      <Text fx:id="totalLabel" layoutX="639.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+   </children>
+</AnchorPane>
