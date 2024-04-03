@@ -7,18 +7,39 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Scanner;
+
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.nio.*;
 
 public class Database{
-	static ArrayList<String> currentlyInCart = new ArrayList<String>();
+	// this is used so the items added to the cart can persist for the entire runtime of the application
+	// this will be filled not with IDs, but the name of the item
+	static ObservableList<String> currentlyInCart = FXCollections.observableArrayList();
 	
 	
-	public static ArrayList<String> getCurrentlyInCart() {
+	// the current running subtotal (total but without tax)
+	static ObservableValue<Integer> curr_subtotal;
+	
+	// getters method
+	public static ObservableList<String> getCurrentlyInCart() {
 		return currentlyInCart;
 	}
 	
-	public static void updateCurrentlyInCart(String id) {
-		currentlyInCart.add(id);
+	public static ObservableValue<Integer> getCurrSubotal(){
+		return curr_subtotal;
+	}
+	
+	
+	// setter methods
+	public static void updateCurrentlyInCart(String nameOfItem) {
+		currentlyInCart.add(nameOfItem);
+	}
+	
+	public static void addToCurrSubtotal(int val) {
+		return;
 	}
 	
 
@@ -28,14 +49,14 @@ public class Database{
 		Hashtable<String, Object[]> database = new Hashtable<String, Object[]>();
 		
 		
-		//second, populate the hashmap with values from groceryitem.txt 
+		//second, populate the hashtable with values from groceryitem.txt 
 		File file = new File("src\\application\\database.txt");
 		
 		Scanner scanner = new Scanner(file);
 		
 		while (scanner.hasNextLine()) {
-			String nextLine = scanner.nextLine();
-			String[] splitLine = nextLine.trim().split("\\s+");
+			String nextLine = scanner.nextLine(); // get next line in database.txt
+			String[] splitLine = nextLine.trim().split("\\s+"); // trim it so there aren't blank entries
 			
 			// the key for the hash which is the ID of the groceryitem
 			String itemID = splitLine[2];
