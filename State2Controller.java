@@ -17,6 +17,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -56,20 +57,21 @@ public class State2Controller implements Initializable{
 	}
 	
 	public void addFromSearch(ActionEvent e) throws Exception {
-		String ID = searchbox.getText();
-		Hashtable<String, Object[]> database = Database.generateDatabase();
-		ArrayList<String> currentlyInCart = Database.getCurrentlyInCart();
+		String ID = searchbox.getText();  // retrieving the text from the textbox
+		Hashtable<String, Object[]> database = Database.generateDatabase(); // instantiating the database
+		ObservableList<String> currentlyInCart = Database.getCurrentlyInCart(); // locally updating what's already in the cart
 		
-		Enumeration<String> keys = database.keys();
+		Enumeration<String> keys = database.keys(); // getting a list of the database keys (all of the IDS)
 		
+		// looping over all of the keys
 		while (keys.hasMoreElements()) {
-			String key = keys.nextElement();
-			System.out.println(key);
-			System.out.println(ID);
-			if (key.equals(ID)) {
-				Object nameOfGrocery1 = database.get(key)[0];
-				String nameOfGrocery2 = (String) nameOfGrocery1;
-				currentlyInCart.add(nameOfGrocery2);
+			String key = keys.nextElement(); // current key
+			if (key.equals(ID)) { 	  // if the entered in textbox is a hit with one from the database
+				
+				// add the name of the groceryitem into the ListView
+				String nameOfGrocery =  (String) (database.get(key)[0]);
+				Database.updateCurrentlyInCart(nameOfGrocery);
+				ListView.setItems(currentlyInCart);
 				System.out.println("item found");			}
 	    }
 	}
@@ -79,10 +81,8 @@ public class State2Controller implements Initializable{
 		// start the animation timer so the date will be dynamically updated every second
 		timer.start();
 		
-		
-		// some skeleton for the ListView full of scanned items
-		ArrayList<String> currentlyInCart = Database.getCurrentlyInCart();
-		ListView.getItems().addAll(currentlyInCart);
+		ObservableList<String> currentlyInCart = Database.getCurrentlyInCart();
+		ListView.setItems(currentlyInCart);
 		
 		
 	    // detects which item in the ListView is being selected
@@ -94,12 +94,8 @@ public class State2Controller implements Initializable{
 			
 				// put the selected item on the table into a string for later uses
 				String selectedItem = ListView.getSelectionModel().getSelectedItem();
-				
 			}
-			
-		});
-			
-		
+		});	
 		}
 		
 	
