@@ -56,6 +56,11 @@ public class State2Controller implements Initializable{
 		
 	}
 	
+	public void switchToState3(ActionEvent e) throws IOException{
+		global.switchToState3(e);
+		
+	}
+	
 	public void addFromSearch(ActionEvent e) throws Exception {
 		String ID = searchbox.getText();  // retrieving the text from the textbox
 		Hashtable<String, Object[]> database = Database.generateDatabase(); // instantiating the database
@@ -108,4 +113,3 @@ public class State2Controller implements Initializable{
 		    }
 		};
 }
-
