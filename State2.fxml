@@ -25,17 +25,32 @@
       <Button fx:id="backButton" layoutX="52.0" layoutY="551.0" mnemonicParsing="false" onAction="#switchToState1" text="↺" />
       <Text fx:id="dateTime" layoutX="5.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dateTime" textAlignment="RIGHT" wrappingWidth="790.0" />
       <ListView fx:id="ListView" editable="true" layoutX="36.0" layoutY="126.0" prefHeight="299.0" prefWidth="374.0" />
+      
+      
       <Button fx:id="checkoutButton" layoutX="626.0" layoutY="409.0" mnemonicParsing="false" text="Checkout">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
+      
+      
       <Text layoutX="541.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Button fx:id="searchButton" layoutX="508.0" layoutY="409.0" mnemonicParsing="false" onAction="#addFromSearch" text="Search">
+      
+      
+      <Button fx:id="searchButton" layoutX="532.0" layoutY="409.0" mnemonicParsing="false" onAction="#addFromSearch" text="Search">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
+      
+      
+        <Button fx:id="lookupButton" layoutX="425.0" layoutY="409.0" mnemonicParsing="false" onAction="#switchToState3" text="Look Up">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      
+      
       <Text layoutX="51.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Your Items">
          <font>
             <Font size="18.0" />
@@ -45,7 +60,7 @@
       <Text layoutX="529.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tax: " />
       <Text layoutX="524.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total: " wrappingWidth="230.0" />
       <Text layoutX="528.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal:" />
-      <TextField fx:id="searchbox" layoutX="508.0" layoutY="374.0" prefHeight="26.0" prefWidth="66.0" />
+      <TextField fx:id="searchbox" layoutX="532.0" layoutY="374.0" prefHeight="26.0" prefWidth="66.0" />
       <Text fx:id="subtotalLabel" layoutX="639.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
       <Text fx:id="taxLabel" layoutX="639.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
       <Text fx:id="totalLabel" layoutX="639.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
