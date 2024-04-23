@@ -11,43 +11,43 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.State2Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.State2Controller">
    <children>
-      <Rectangle fx:id="anchorPane" arcHeight="5.0" arcWidth="5.0" fill="#fc8165" height="600.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="415.0" layoutX="23.0" layoutY="68.0" stroke="#f2e6e6" strokeType="INSIDE" width="757.0" />
+      <Rectangle fx:id="anchorPane" arcHeight="5.0" arcWidth="5.0" fill="#fc8165" height="800.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1550.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="510.0" layoutX="293.0" layoutY="158.0" stroke="#f2e6e6" strokeType="INSIDE" width="964.0" />
       <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="23.0" layoutY="7.0">
          <image>
             <Image url="@../../../../OneDrive/Documents/C--.png" />
          </image>
       </ImageView>
-      <Label fx:id="headerLabel" layoutX="92.0" layoutY="26.0" prefHeight="17.0" prefWidth="708.0" text="C-- Self Service Checkout Machine ver1" />
-      <Button fx:id="helpButton" layoutX="14.0" layoutY="552.0" mnemonicParsing="false" onAction="#switchToState5" text="?" />
-      <Button fx:id="backButton" layoutX="52.0" layoutY="551.0" mnemonicParsing="false" onAction="#switchToState1" text="↺" />
-      <Text fx:id="dateTime" layoutX="5.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dateTime" textAlignment="RIGHT" wrappingWidth="790.0" />
-      <ListView fx:id="ListView" editable="true" layoutX="36.0" layoutY="126.0" prefHeight="299.0" prefWidth="374.0" />
-      <Button fx:id="checkoutButton" layoutX="626.0" layoutY="409.0" mnemonicParsing="false" text="Checkout">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
+      <Label fx:id="headerLabel" layoutX="108.0" layoutY="47.0" prefHeight="17.0" prefWidth="708.0" text="C-- Self Service Checkout Machine ver1" />
+      <Button fx:id="helpButton" layoutX="14.0" layoutY="752.0" mnemonicParsing="false" onAction="#switchToState5" text="?" />
+      <Button fx:id="backButton" layoutX="52.0" layoutY="752.0" mnemonicParsing="false" onAction="#switchToState1" text="↺" />
+      <Text fx:id="dateTime" layoutX="589.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dateTime" textAlignment="RIGHT" wrappingWidth="790.0" />
+      <ListView fx:id="ListView" editable="true" layoutX="361.0" layoutY="264.0" prefHeight="299.0" prefWidth="374.0" />
       <Text layoutX="541.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Button fx:id="searchButton" layoutX="508.0" layoutY="409.0" mnemonicParsing="false" onAction="#addFromSearch" text="Search">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Text layoutX="51.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Your Items">
+      <Text layoutX="365.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Your Items">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f1f3f4" height="229.0" layoutX="510.0" layoutY="126.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-      <Text layoutX="529.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tax: " />
-      <Text layoutX="524.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total: " wrappingWidth="230.0" />
-      <Text layoutX="528.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal:" />
-      <TextField fx:id="searchbox" layoutX="508.0" layoutY="374.0" prefHeight="26.0" prefWidth="66.0" />
-      <Text fx:id="subtotalLabel" layoutX="639.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-      <Text fx:id="taxLabel" layoutX="639.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-      <Text fx:id="totalLabel" layoutX="639.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f1f3f4" height="438.0" layoutX="867.0" layoutY="195.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="354.0" />
+      <Text layoutX="912.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tax: " />
+      <Text layoutX="912.0" layoutY="542.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total: " wrappingWidth="230.0" />
+      <Text layoutX="912.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal:" wrappingWidth="46.998046875" />
+      <TextField fx:id="searchbox" layoutX="912.0" layoutY="576.0" prefHeight="26.0" prefWidth="66.0" />
+      <Text fx:id="subtotalLabel" layoutX="1177.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+      <Text fx:id="taxLabel" layoutX="1177.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+      <Text fx:id="totalLabel" layoutX="1177.0" layoutY="542.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+      <Button fx:id="searchButton" layoutX="1015.0" layoutY="574.0" mnemonicParsing="false" onAction="#addFromSearch" text="Search">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="checkoutButton" layoutX="1103.0" layoutY="574.0" mnemonicParsing="false" text="Checkout">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
