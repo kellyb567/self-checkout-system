@@ -8,20 +8,20 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.State1Controller">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.State1Controller">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fc8165" height="600.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="415.0" layoutX="23.0" layoutY="68.0" stroke="#f2e6e6" strokeType="INSIDE" width="757.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fc8165" height="800.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1550.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="510.0" layoutX="304.0" layoutY="134.0" stroke="#f2e6e6" strokeType="INSIDE" width="964.0" />
       <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="23.0" layoutY="7.0">
          <image>
             <Image url="@../../../../OneDrive/Documents/C--.png" />
          </image>
       </ImageView>
-      <Button fx:id="getStarted" layoutX="290.0" layoutY="337.0" mnemonicParsing="false" onAction="#switchToState2" prefHeight="25.0" prefWidth="221.0" text="Get Started" />
-      <Label fx:id="welcomeLabel" layoutX="9.0" layoutY="188.0" prefHeight="17.0" prefWidth="790.0" text="Welcome! Click the button to get started" />
-      <Label fx:id="headerLabel" layoutX="92.0" layoutY="26.0" prefHeight="17.0" prefWidth="708.0" text="C-- Self Service Checkout Machine ver1" />
-      <Button fx:id="helpButton" layoutX="14.0" layoutY="552.0" mnemonicParsing="false" onAction="#switchToState5" text="?" />
-      <Text fx:id="dateTime" layoutX="5.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dateTime" textAlignment="RIGHT" wrappingWidth="790.0" />
-      <Button fx:id="logoutButton" layoutX="728.0" layoutY="552.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+      <Button fx:id="getStarted" layoutX="307.8" layoutY="740.0" mnemonicParsing="false" onAction="#switchToState2" prefHeight="25.0" prefWidth="221.0" text="Get Started" AnchorPane.leftAnchor="307.8" AnchorPane.rightAnchor="271.39999999999986" />
+      <Label fx:id="welcomeLabel" layoutX="308.0" layoutY="362.0" prefHeight="18.0" prefWidth="939.0" text="Welcome! Click the button to get started" />
+      <Label fx:id="headerLabel" layoutX="91.0" layoutY="54.0" prefHeight="18.0" prefWidth="763.0" text="C-- Self Service Checkout Machine ver1" />
+      <Button fx:id="helpButton" layoutX="26.0" layoutY="742.0" mnemonicParsing="false" onAction="#switchToState5" text="?" />
+      <Text fx:id="dateTime" layoutX="855.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dateTime" textAlignment="RIGHT" wrappingWidth="557.4666900634766" />
+      <Button fx:id="logoutButton" layoutX="1416.0" layoutY="741.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
    </children>
 </AnchorPane>
