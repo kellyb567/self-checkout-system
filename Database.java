@@ -8,6 +8,9 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Scanner;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,29 +23,96 @@ public class Database{
 	static ObservableList<String> currentlyInCart = FXCollections.observableArrayList();
 	
 	
-	// the current running subtotal (total but without tax)
-	static ObservableValue<Integer> curr_subtotal;
+	// tax rate
+	static Double taxRate = (Double) 0.08;
 	
-	// getters method
+	
+	// values set to update total(s) labels in state 2
+	// first set in Main
+	static StringProperty curr_subtotal = new SimpleStringProperty();
+	static StringProperty curr_tax = new SimpleStringProperty();
+	static StringProperty curr_total = new SimpleStringProperty();
+	
+	
+	// getter methods
 	public static ObservableList<String> getCurrentlyInCart() {
 		return currentlyInCart;
 	}
 	
-	public static ObservableValue<Integer> getCurrSubotal(){
+	public static StringProperty getCurrSubtotal(){
 		return curr_subtotal;
 	}
 	
+	public static StringProperty getCurrTax(){
+		return curr_tax;
+	}
+	
+	public static StringProperty getCurrTotal(){
+		return curr_total;
+	}
+	
+	public static Double getTaxRate() {
+		return taxRate;
+	}
+	
+	
+	public static Double stringPropertyToDouble(StringProperty value) {
+		String tempString = value.get();
+		Double tempFloat = Double.parseDouble(tempString);
+		
+		return tempFloat;
+	}
 	
 	// setter methods
 	public static void updateCurrentlyInCart(String nameOfItem) {
 		currentlyInCart.add(nameOfItem);
 	}
 	
-	public static void addToCurrSubtotal(int val) {
-		return;
+	public static void setCurrSubtotal(String val) {
+		curr_subtotal.setValue(val);
+		// System.out.println("after set: " + stringPropertyToFloat(curr_tax));
+	}
+	
+	public static void setCurrTax(String val) {
+		curr_tax.setValue(val);
+	}
+	
+	public static void setCurrTotal(String val) {
+		curr_total.setValue(val);
+	}
+	
+	
+	// update methods
+	public static void addToCurrSubtotal(Double val) {
+		Double currSubtotal = stringPropertyToDouble(getCurrSubtotal());
+		
+		currSubtotal += val;
+		String newSubtotal = Double.toString(currSubtotal);
+		
+		setCurrSubtotal(newSubtotal);
+	}
+	
+	public static void addToCurrTax(Double val) {
+		Double currTax = stringPropertyToDouble(getCurrTax());
+		
+		currTax += val;
+		String newTax = Double.toString(currTax);
+		
+		setCurrTax(newTax);
+	}
+	
+	public static void addToCurrTotal(Double val) {
+		Double currTotal = stringPropertyToDouble(getCurrTotal());
+		
+		currTotal += val;
+		String newTotal = Double.toString(currTotal);
+
+		// curr_total.setValue(tempString);
+		setCurrTotal(newTotal);
 	}
 	
 
+	// database generation
 	public static Hashtable<String, Object[]> generateDatabase() throws Exception {
 		
 		// first, create a hash table
@@ -76,6 +146,7 @@ public class Database{
 			System.out.println("Key: " + key + ", Value: [" + database.get(key)[0] + ", " + database.get(key)[1] + "]");
 		}
 		*/
+		
 		
 		scanner.close();
 		return database;
