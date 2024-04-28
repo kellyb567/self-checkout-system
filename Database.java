@@ -24,7 +24,7 @@ public class Database{
 	private static ObservableList<String> currentlyInCart = FXCollections.observableArrayList();
 	private static ArrayList<Integer> currentlyInCartID = new ArrayList<>();
 	
-	private static final DecimalFormat decfor  = new DecimalFormat("0.00");
+	private static final DecimalFormat formatting  = new DecimalFormat("0.00");
 	
 	public static Double round(Double number) {
 		double newNum = number.doubleValue();
@@ -34,7 +34,7 @@ public class Database{
 		double finalNum = (double) roundedInt / 100;
 		*/
 		
-		double finalNum = Double.parseDouble(decfor.format(newNum));
+		double finalNum = Double.parseDouble(formatting.format(newNum));
 		Double finalNumDouble = finalNum;
 		return finalNumDouble;
 	}
