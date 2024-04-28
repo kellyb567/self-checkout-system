@@ -105,5 +105,21 @@ public class GlobalController{
 		stage.show();
 	}
 	
+	public void switchToState7(ActionEvent e) throws IOException{
+		// initialize State1
+		root = FXMLLoader.load(getClass().getResource("State7.fxml"));
+		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+		
+		//set State1 as the scene
+		scene = new Scene(root);
+		
+		// style the scene
+		String style = this.getClass().getResource("application.css").toExternalForm();
+		scene.getStylesheets().add(style);
+
+		// put the scene into the stage and show	
+		stage.setScene(scene);
+		stage.show();
+	}
 	
 }
