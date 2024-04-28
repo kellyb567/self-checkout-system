@@ -79,6 +79,7 @@ public class State4Controller implements Initializable{
 			if ( username.equals(listOfUsernames.get(i)) && password.equals(listOfPasswords.get(i))){
 				System.out.println("Successful Login");
 				// do something; maybe return to the checkout list
+				switchToState2(e);
 				return;
 			}
 			else if (username.equals(listOfUsernames.get(i))){
