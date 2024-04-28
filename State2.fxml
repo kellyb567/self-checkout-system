@@ -39,12 +39,12 @@
       <Text fx:id="subtotalLabel" layoutX="1177.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
       <Text fx:id="taxLabel" layoutX="1177.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
       <Text fx:id="totalLabel" layoutX="1177.0" layoutY="542.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-      <Button fx:id="searchButton" layoutX="1015.0" layoutY="574.0" mnemonicParsing="false" onAction="#addFromSearch" text="Search">
+      <Button fx:id="searchButton" layoutX="1015.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchToState7" text="Checkout">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="checkoutButton" layoutX="1103.0" layoutY="574.0" mnemonicParsing="false" text="Checkout">
+      <Button fx:id="checkoutButton" layoutX="1103.0" layoutY="574.0" mnemonicParsing="false" text="Checkout" >
          <font>
             <Font size="15.0" />
          </font>
