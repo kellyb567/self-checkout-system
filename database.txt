@@ -3,3 +3,8 @@ ketchup 4.99 3429
 milk 2.49 2018
 butter 1.49 2202
 chicken 7.99 8045
+steak 13.99 9999
+rice 3.99 2032
+sprite 1.99 9047
+bread 4.9 8210
+parsley 0.49 0987
