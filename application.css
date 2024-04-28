@@ -13,6 +13,13 @@
 	-fx-alignment: center;
 }
 
+.list-cell{
+	-fx-font-family: "Trebuchet MS";
+	-fx-text-fill: "black";
+	-fx-background-color: white;
+	-fx-font-size: 15;
+}
+
 
 /*local styling settings */
 #welcomeLabel{
@@ -42,4 +49,6 @@
 	-fx-font-size: 15;
 	
 }
+
+
 
