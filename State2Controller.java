@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -52,16 +53,19 @@ public class State2Controller implements Initializable{
 	@FXML
 	private Text totalLabel;
 	
+	private static final DecimalFormat decfor  = new DecimalFormat("0.00");
+	
 	public static Double round(Double number) {
 		double newNum = number.doubleValue();
 		
-		double scaledValue = newNum * 100;
+		/*double scaledValue = newNum * 100;
 		int roundedInt = (int) Math.round(scaledValue);
 		double finalNum = (double) roundedInt / 100;
+		*/
 		
-		Double finalNum1 = finalNum;
-		
-		return finalNum1;
+		double finalNum = Double.parseDouble(decfor.format(newNum));
+		Double finalNumDouble = finalNum;
+		return finalNumDouble;
 	}
 	
 	
