@@ -3,6 +3,7 @@ package application;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
@@ -20,8 +21,23 @@ import java.nio.*;
 public class Database{
 	// this is used so the items added to the cart can persist for the entire runtime of the application
 	// this will be filled not with IDs, but the name of the item
-	static ObservableList<String> currentlyInCart = FXCollections.observableArrayList();
+	private static ObservableList<String> currentlyInCart = FXCollections.observableArrayList();
+	private static ArrayList<Integer> currentlyInCartID = new ArrayList<>();
 	
+	private static final DecimalFormat decfor  = new DecimalFormat("0.00");
+	
+	public static Double round(Double number) {
+		double newNum = number.doubleValue();
+		
+		/*double scaledValue = newNum * 100;
+		int roundedInt = (int) Math.round(scaledValue);
+		double finalNum = (double) roundedInt / 100;
+		*/
+		
+		double finalNum = Double.parseDouble(decfor.format(newNum));
+		Double finalNumDouble = finalNum;
+		return finalNumDouble;
+	}
 	
 	// tax rate
 	static Double taxRate = (Double) 0.08;
@@ -29,9 +45,9 @@ public class Database{
 	
 	// values set to update total(s) labels in state 2
 	// first set in Main
-	static StringProperty curr_subtotal = new SimpleStringProperty();
-	static StringProperty curr_tax = new SimpleStringProperty();
-	static StringProperty curr_total = new SimpleStringProperty();
+	private static StringProperty curr_subtotal = new SimpleStringProperty();
+	private static StringProperty curr_tax = new SimpleStringProperty();
+	private static StringProperty curr_total = new SimpleStringProperty();
 	
 	
 	// getter methods
@@ -68,6 +84,11 @@ public class Database{
 		currentlyInCart.add(nameOfItem);
 	}
 	
+	public static void updateCurrentlyInCart(int id) {
+		currentlyInCartID.add(id);
+		
+	}
+	
 	public static void setCurrSubtotal(String val) {
 		curr_subtotal.setValue(val);
 		// System.out.println("after set: " + stringPropertyToFloat(curr_tax));
@@ -86,7 +107,7 @@ public class Database{
 	public static void addToCurrSubtotal(Double val) {
 		Double currSubtotal = stringPropertyToDouble(getCurrSubtotal());
 		
-		currSubtotal += val;
+		currSubtotal = round(currSubtotal+val);
 		String newSubtotal = Double.toString(currSubtotal);
 		
 		setCurrSubtotal(newSubtotal);
@@ -95,7 +116,7 @@ public class Database{
 	public static void addToCurrTax(Double val) {
 		Double currTax = stringPropertyToDouble(getCurrTax());
 		
-		currTax += val;
+		currTax = round(currTax+val);
 		String newTax = Double.toString(currTax);
 		
 		setCurrTax(newTax);
@@ -104,7 +125,7 @@ public class Database{
 	public static void addToCurrTotal(Double val) {
 		Double currTotal = stringPropertyToDouble(getCurrTotal());
 		
-		currTotal += val;
+		currTotal = round(currTotal+val);
 		String newTotal = Double.toString(currTotal);
 
 		// curr_total.setValue(tempString);
