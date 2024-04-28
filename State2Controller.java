@@ -78,6 +78,11 @@ public class State2Controller implements Initializable{
 		global.switchToState5(e);
 		
 	}
+	public void switchToState7(ActionEvent e) throws IOException{
+		global.switchToState7(e);
+		
+	}
+	
 	
 	public void addFromSearch(ActionEvent e) throws Exception {
 		String ID = searchbox.getText();  // retrieving the text from the textbox
