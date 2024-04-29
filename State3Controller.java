@@ -45,9 +45,8 @@ public class State3Controller implements Initializable{
 	
 	
 	public void addFromButton(ActionEvent e) throws Exception {
-	 /* must figure out how to get this to add text from button on screen3 to screen 2 list*/
 		
-		String ID = greenpep.getText();  // retrieving the text from the textbox
+		String ID = greenpep.getText();  // retrieving the text from the textbox of button
 		Hashtable<String, Object[]> database = Database.generateDatabase(); // instantiating the database
 		ObservableList<String> currentlyInCart = Database.getCurrentlyInCart(); // locally updating what's already in the cart
 		
@@ -56,7 +55,7 @@ public class State3Controller implements Initializable{
 		// looping over all of the keys
 		while (keys.hasMoreElements()) {
 			String key = keys.nextElement(); // current key
-			if (key.equals(ID)) { 	  // if the entered in textbox is a hit with one from the database
+			if (key.equals(ID)) { 	  // if the entered in textbox is a hit with ID from the database
 				
 				// add the name of the groceryitem into the ListView
 				String nameOfGrocery =  (String) (database.get(key)[0]);
@@ -64,14 +63,10 @@ public class State3Controller implements Initializable{
 				ListView.setItems(currentlyInCart);
 				System.out.println("item found");			}
 	    }
-		
+		// switch back to State 2 so can see the added item
 		global.switchToState2(e);
-		
 	}
 	  
-	
-	
-
 	
 	public void logout(ActionEvent e){
 		Alert alert = new Alert(AlertType.CONFIRMATION);
