@@ -20,7 +20,7 @@
             <Image url="@../../../../OneDrive/Documents/C--.png" />
          </image>
       </ImageView>
-      <Label fx:id="headerLabel" layoutX="108.0" layoutY="47.0" prefHeight="17.0" prefWidth="708.0" text="C-- Self Service Checkout Machine ver1" />
+      <Label fx:id="headerLabel" layoutX="150.0" layoutY="47.0" prefHeight="17.0" prefWidth="708.0" text="C-- Self Service Checkout Machine ver1" />
       <Button fx:id="helpButton" layoutX="14.0" layoutY="752.0" mnemonicParsing="false" onAction="#switchToState5" text="?" />
       <Button fx:id="backButton" layoutX="52.0" layoutY="752.0" mnemonicParsing="false" onAction="#switchToState1" text="↺" />
       <Text fx:id="dateTime" layoutX="589.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dateTime" textAlignment="RIGHT" wrappingWidth="790.0" />
@@ -39,12 +39,18 @@
       <Text fx:id="subtotalLabel" layoutX="1177.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
       <Text fx:id="taxLabel" layoutX="1177.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
       <Text fx:id="totalLabel" layoutX="1177.0" layoutY="542.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-      <Button fx:id="searchButton" layoutX="1015.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchToState7" text="Checkout">
+      <Button fx:id="searchButton" layoutX="1015.0" layoutY="574.0" mnemonicParsing="false" onAction="#addFromSearch" text="Search">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="checkoutButton" layoutX="1103.0" layoutY="574.0" mnemonicParsing="false" text="Checkout" >
+      <Button fx:id="checkoutButton" layoutX="1103.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchToState7" text="Checkout">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      
+       <Button fx:id="findButton" layoutX="750.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchToState3" text="Find Item">
          <font>
             <Font size="15.0" />
          </font>
